@@ -1,0 +1,47 @@
+{{ $data := index site.Data site.Language.Lang }}
+
+{{ if $data.service.service.enable}}
+{{ with $data.service.service}}
+{{"<!-- service -->" | safeHTML }}
+{{ $var := "" }}
+{{ if .hide_on_mobile }}
+    {{ $var = "hideonmobile" }}
+{{ end }}
+<section id="services" class="bg-one section {{ $var }}">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				{{"<!-- section title -->" | safeHTML }}
+				<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+					<h2>{{ with .title }} {{ index (split . " ") 0 | safeHTML }} {{ end }}<span class="color">
+						{{ with .title }} {{ after (len (index (split . " ") 0)) . | safeHTML }} {{ end }}</span></h2>
+					<div class="border-meghna"></div>
+				</div>
+			</div>
+			{{"<!-- /section title -->" | safeHTML }}
+
+			{{ range .service_item}}
+			{{"<!-- Single Service Item -->" | safeHTML }}
+			<article class="col-lg-4 col-md-4 col-12 wow fadeInUp" data-wow-duration="500ms">
+				<div class="service-block text-center d-flex">
+					<div class="service-icon text-center col-12">
+						<div class="inner">
+							<div class="flexinner">
+								<i class="{{ .icon }}"></i>
+							</div>
+						</div>
+					</div>
+					<div class="service-text col-12">
+					<h3>{{ .name | markdownify }}</h3>
+					<p>{{ .content | markdownify }}</p>
+					</div>
+				</div>
+			</article>
+			{{"<!-- End Single Service Item -->" | safeHTML }}
+			{{ end }}
+		</div>
+	</div>
+</section>
+{{"<!-- /service -->" | safeHTML }}
+{{ end }}
+{{ end }}

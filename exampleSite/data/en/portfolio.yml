@@ -1,0 +1,97 @@
+---
+portfolio:
+  enable: true
+  hide_on_mobile: true
+  title: External Resources
+  portfolio_item:
+  - name: Identity's journey (click here to watch)
+    image: "/images/mirror.jpg"
+    image_webp: ''
+    categories:
+    - Perspectives
+    content: ''
+    link: https://youtu.be/rd3yeX1-SaM?t=3
+  - name: Self-care (click here to read)
+    image: "/images/needs.jpg"
+    image_webp: ''
+    categories:
+    - Perspectives
+    content: ''
+    link: https://www.facebook.com/Nepenthe.DZ/photos/a.992878550889643/1458004147710412
+  - name: The role of sleep (click here to read)
+    image: "/images/sleep.jpg"
+    image_webp: ''
+    categories:
+    - Guides
+    content: ''
+    link: https://www.theschooloflife.com/thebookoflife/the-role-of-sleep-in-mental-health/
+  - name: To Yoga or not to Yoga (click here to read)
+    image: "/images/yoga.jpg"
+    image_webp: ''
+    categories:
+    - Perspectives
+    content: ''
+    link: https://youtu.be/_8kV4FHSdNA
+  - name: More than gold (click here to read)
+    image: "/images/morethangold.jpg"
+    image_webp: ''
+    categories:
+    - Perspectives
+    content: ''
+    link: https://www.theschooloflife.com/thebookoflife/the-concept-of-voluntary-poverty/
+  - name: Pit stop (click here to access)
+    image: "/images/mixtape.png"
+    image_webp: "/images/mixtape.webp"
+    categories:
+    - Guides
+    content: ''
+    link: https://rayray.glitch.me/
+  - name: Love (click here to watch)
+    image: "/images/love.jpg"
+    image_webp: "/images/love.jpg"
+    categories:
+    - Perspectives
+    content: ''
+    link: https://youtu.be/9tVkWYv484Y
+  - name: Overcoming bad inner voices (click here to watch)
+    image: "/images/badinnervoices.png"
+    image_webp: "/images/badinnervoices.webp"
+    categories:
+    - Guides
+    content: ''
+    link: https://youtu.be/gGuZVuUBeiQ
+  - name: 20' guided meditation (click here to watch)
+    image: "/images/meditation20.jpg"
+    image_webp: ''
+    categories:
+    - Guides
+    content: ''
+    link: https://youtu.be/_FFDfOzTgGg
+  - name: Levels of consciousness (click here to watch)
+    image: "/images/walk.jpg"
+    image_webp: ''
+    categories:
+    - Guides
+    content: ''
+    link: https://youtu.be/FQabwV9YjPo
+  - name: The power of surrender (click here to watch)
+    image: "/images/surrender.jpg"
+    image_webp: ''
+    categories:
+    - Perspectives
+    content: ''
+    link: https://youtu.be/tTagzjCROPU
+  - name: Joy time (click here to watch)
+    image: "/images/meditation.jpg"
+    image_webp: ''
+    categories:
+    - Guides
+    content: ''
+    link: https://youtu.be/9Euz0cUpyPI
+  - name: The nature of life (click here to watch)
+    image: images/natureoflife.jpg
+    image_webp: ''
+    categories:
+    - Interviews
+    content: ''
+    link: https://youtu.be/lHt0SJsbO1o

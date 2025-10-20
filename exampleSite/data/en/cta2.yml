@@ -1,0 +1,23 @@
+---
+cta:
+  enable: true
+  bg_image: ''
+  bg_image_webp: ''
+  title: 'Gain clarity about your future and make it real.'
+  content: 'Over 4000 years of astrological wisdom, at your service.'
+  button:
+    enable: true
+    label: Get in touch
+    link: https://calendly.com/misterclarity/30min
+  hide_on_mobile: false
+cta2:
+  enable: true
+  hide_on_mobile: false
+  bg_image: ''
+  bg_image_webp: ''
+  title: 'Building bridges is therapeutic.'
+  content: 'Find out what the world has in store for your life journey.'
+  button:
+    enable: true
+    label: Get in touch
+    link: https://calendly.com/misterclarity/30min

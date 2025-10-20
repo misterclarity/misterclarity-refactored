@@ -1,0 +1,30 @@
+---
+service:
+  enable: true
+  title: Your Progress
+  service_item:
+  - name: Motivation
+    icon: fa fa-awesome-face fa-lg fa-3x
+    content: 'Waking up feeling grateful to be alive. Your spontaneity is key to fulfillment,
+      regardless of circumstances. '
+  - name: Clarity
+    icon: fa fa-compass fa-lg fa-3x
+    content: Observing and accepting reality provides direction in life. Decisions
+      become intuitive and getting back on track feels effortless.
+  - name: Focus
+    icon: fa fa-bolt fa-lg fa-3x
+    content: "(Re)aligning with your needs validates and increases your drive. Focusing
+      on your vision grants momentum."
+  - name: Grounding
+    icon: fa fa-tree fa-lg fa-3x
+    content: Naturally stepping into a place of calm and composure, especially when
+      dealing with a novel or complex situation.
+  - name: Intelligence
+    icon: fa fa-lightbulb-o fa-lg fa-3x
+    content: Enhancing your mental capacity by operating from a place of deep wisdom
+      and genuine acceptance.
+  - name: Confidence
+    icon: fa fa-level-up fa-lg fa-3x
+    content: Overcoming blockages activates latent resources you always had, but could
+      not access.
+  hide_on_mobile: true

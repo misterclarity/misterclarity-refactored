@@ -1,0 +1,14 @@
+---
+banner:
+  enable: true
+  hide_on_mobile: false
+  bg_image_webp: "/images/sun2.webp"
+  bg_image: ''
+  icon: ''
+  title: ''
+  content: ''
+  button:
+    enable: true
+    label: Let's go!
+    link: "#feature"
+  bg_video: ''

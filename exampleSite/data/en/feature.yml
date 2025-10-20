@@ -1,0 +1,9 @@
+---
+feature:
+  enable: true
+  image: "/images/profile.jpg"
+  image_webp: "/images/profile.webp"
+  title: ''
+  content: ''
+  feature_item: []
+  hide_on_mobile: false

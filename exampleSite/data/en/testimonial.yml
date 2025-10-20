@@ -1,0 +1,97 @@
+---
+testimonial:
+  enable: true
+  bg_image: "/images/testimonialsbikes.jpg"
+  bg_image_webp: "/images/sun2.webp"
+  testimonial_item:
+  - name: Maria, Vienna
+    image: "/images/marialazar.jpeg"
+    image_webp: ''
+    date: If you are searching for a more holistic coaching program [...] Vlad is
+      your coach.
+    content: Vlad has an extremely broad acumen, he is a very professional, and inquisitive
+      but also a compassionate counselor. It was important for me to be able to trust,
+      so one of the things I appreciated the most was that he held a strong and safe
+      space for expressing deep feelings, doubts, and inquiries. He guided me very
+      subtly yet empowered me through precise questions to get to the essence of things,
+      gain more clarity and make steps in the right direction. If you are searching
+      for a more holistic coaching program, that can be tailored as you go and need,
+      I think Vlad is your coach.
+  - name: MK, Vienna
+    image: "/images/logo.png"
+    image_webp: ''
+    date: '"It was very enchanting to talk with Vlad."'
+    content: It was very enchanting to talk with Vlad through critical periods of
+      my life and connecting dots I would have never seen in relation with each other.
+      Vlad is fully immersed in the discussion and has a special feel for the body
+      mind connection. His deep understanding for eastern and western philosophy helps
+      to integrate all these concepts into the individual life.
+  - name: Cynthia, Bali
+    image: "/images/cynthia.jpeg"
+    image_webp: ''
+    date: '"Vlad is caring, insightful, and truly helpful."'
+    content: Vlad is a superb listener, which in my experience, is a rare find. Too
+      many times in our daily life we met people who listen to reply and not to actually
+      understand. Now Vlad is not like that. He has a way to make you feel comfortable
+      to open up and by the end of your sentence, he always comes up with smart, thought-provoking
+      responses that help you to reflect on your problems and focus on the light at
+      the end of the tunnel. Vlad is caring, insightful, and truly helpful. Every
+      coaching session with him is a time well spent, which I sincerely recommend
+      for anyone feeling lost or stuck in their life!
+  - name: Madawi, Saudi Arabia
+    image: "/images/logo.png"
+    image_webp: ''
+    date: '"Thank you for reminding me of things that I‘ve forgotten."'
+    content: |-
+      I really appreciate you offering me your time, energy, and open heart to listen to my situation. However long the time I took pouring out all my emotions, it only felt like minutes. Thank you for enlightening me and reminding me of things that I‘ve forgotten.
+      Your energy has filled up mine and revived me to get back to my life with a clear head and positive outlook.
+  - name: Fartun, Vienna
+    image: "/images/fartun.png"
+    image_webp: "/images/fartun.webp"
+    date: '"Try out a session with him and thank me later."'
+    content: 'I really appreciated the coaching sessions with Vlad as I gained so
+      much clarity out of them. He really puts you at ease with his calm demeanour
+      while he helps you address and figure out the issue at hand yourself. I warmly
+      recommend to each and everyone - no matter what life situation they are dealing
+      with - to try out a session with him and thank me later. '
+  - name: Marti, Budapest
+    image: "/images/marti.jpg"
+    image_webp: "/images/marti.webp"
+    date: '"I did not feel lost anymore, but empowered."'
+    content: Based on our discussion and thanks to the meaningful questions Vlad raised
+      I decided to pursue my goal about blogging. He comforted me the whole time making
+      sure that I did not feel lost anymore, but empowered. Vlad's observations helped
+      me realize some of my misbeliefs and overcome them - all this in a patient,
+      thoughtful manner.
+  - name: Adriana, Hamburg
+    image: "/images/adriana.jpg"
+    image_webp: "/images/adriana.webp"
+    date: '"Amazing at piecing together what you’re telling him."'
+    content: Vlad is amazing at piecing together what you’re telling him. He listens
+      fully immersed, never forgets a thing and points out the red thread holding
+      together one’s stories by asking the most insightful questions. He helped me
+      connect with a side of myself by holding the space for me to give voice to that
+      part. I enjoy his style because it balances out the inquisitive nature of coaching
+      with playful elements that led me to insightful AHA! moments.
+  - name: Maryia, Berlin
+    image: "/images/maryia.jpeg"
+    image_webp: "/images/maryia.webp"
+    date: '"A great listener."'
+    content: Vlad is a great listener and asks very insightful questions which prompt
+      you to see the problem / situation in a different light. He helped me to get
+      a new perspective on things which I could not unpick for years. And this empowered
+      me to make choices instead of feeling stuck. I would recommend you to work with
+      Vlad if you feel stuck in certain areas of your life and you are looking to
+      gain crystal clarity on the next steps.
+  - name: Carmen, London
+    image: "/images/carmen.png"
+    image_webp: "/images/carmen.webp"
+    date: '"A very intuitive coach."'
+    content: I gained a much deeper level of understanding as he skillfully managed
+      to take me to look at certain areas I was avoiding due to past pain. It was
+      an emotional journey of self-discovery to walk past the stories in my head and
+      see the truth. I had an amazing aha! moment in which I knew with clarity what
+      was the next step for me to take to improve my situation. I warmly recommend
+      Vlad to anybody who is ready to challenge their beliefs/fears and see the truth
+      to change his/her life.
+  hide_on_mobile: false

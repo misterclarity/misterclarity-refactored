@@ -1,0 +1,18 @@
+---
+about:
+  enable: false
+  title: About You
+  about_item:
+  - icon: ti-heart
+    title: You are Wild
+    content: There is a force of nature inside you which empowers, moves you forward,
+      and provides timeless happiness.
+  - icon: ti-cup
+    title: You are Resourceful
+    content: Your subconscious is full of hidden resources, ideas, and solutions.
+      Discover and use them in your favor!
+  - icon: ti-world
+    title: You are Whole
+    content: What if there is nothing wrong with you? Integrate all the critical voices
+      by gaining perspective and a deeper Self-awareness.
+  hide_on_mobile: false

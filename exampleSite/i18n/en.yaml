@@ -1,0 +1,31 @@
+---
+- id: blogTitle
+  translation: Latest Posts
+- id: readMore
+  translation: Read more
+- id: viewAllPost
+  translation: View All Posts
+- id: share
+  translation: Share
+- id: aboutAuthor
+  translation: About author
+- id: authorsPosts
+  translation: Author's posts
+- id: all
+  translation: All
+- id: feature
+  translation: About
+# - id: service
+#   translation: My Promise
+- id: testimonial
+  translation: Testimonials
+# - id: portfolio
+#   translation: Resources
+- id: pricing
+  translation: Offer
+- id: blog
+  translation: Blog
+- id: contact
+  translation: Contact
+- id: spaceholderz
+  translation: Spaceholderz

@@ -1,0 +1,14 @@
+{{ if site.Params.preloader.enable }}
+{{ "<!-- preloader start -->" | safeHTML }}
+<div class="preloader">
+  {{ with site.Params.preloader.preloader }}
+  <div class="l-preloader">
+    <div class="l-preloader-spinner">
+      <div class="g-preloader type_4">
+        <div></div>
+      </div>
+    </div>
+  </div>  {{ end }}
+</div>
+{{ "<!-- preloader end -->" | safeHTML }}
+{{ end }}
