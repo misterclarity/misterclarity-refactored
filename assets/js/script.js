@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/*	Page Preloader
+/*	Page Preloader: Handles the site loading screen
 /* ========================================================================= */
 
 $(window).on('load', function () {
@@ -19,7 +19,7 @@ $(".cta-close").click(function(){
 jQuery(function ($) {
 	"use strict";
 	/* ========================================================================= */
-	/*	center banner elevator title
+	/*	Banner Title Alignment: Centers the multi-line banner text correctly
 	/* ========================================================================= */
 	if($(document).width() > 993) { 
 		var maxWidth = 0;
@@ -67,15 +67,15 @@ jQuery(function ($) {
 
 
 	/* ========================================================================= */
-	/*	lazy load initialize
+	/*	Lozad Initialization: Enables lazy loading for images and elements
 	/* ========================================================================= */
 
 	const observer = lozad(); // lazy loads elements with default selector as ".lozad"
 	observer.observe();
 
 	/* ========================================================================= */
-	/*	Magnific popup
-	/* =========================================================================  */
+	/*	Magnific Popup: Handles image lightboxes and overlays
+	/* ========================================================================= */
 	$('.image-popup').magnificPopup({
 		type: 'image',
 		removalDelay: 160, //delay removal by X to allow out-animation
@@ -93,8 +93,8 @@ jQuery(function ($) {
 	});
 
 	/* ========================================================================= */
-	/*	Portfolio Filtering Hook
-	/* =========================================================================  */
+	/*	Shuffle.js Hook: Logic for portfolio or item filtering (if used)
+	/* ========================================================================= */
 
 	var containerEl = document.querySelector('.shuffle-wrapper');
 	if (containerEl) {
@@ -113,8 +113,8 @@ jQuery(function ($) {
 	}
 
 	/* ========================================================================= */
-	/*	Testimonial Carousel
-	/* =========================================================================  */
+	/*	Testimonial Carousel: Initialization of the Slick Slider for reviews
+	/* ========================================================================= */
 
 	$("#testimonials").slick({
 		infinite: true,
@@ -127,7 +127,7 @@ jQuery(function ($) {
 	});
 
 	/* ========================================================================= */
-	/*	animation scroll js
+	/*	Smooth Scrolling: Smooth navigation transitions for anchor links
 	/* ========================================================================= */
 	$(function() {
 		$('nav a, .page-scroll, footer a[href="#body"').click(function() {
@@ -163,7 +163,7 @@ jQuery(function ($) {
 	});
 
 	/* ========================================================================= */
-	/*	counter up
+	/*	Counter: Animated numbers for stats sections
 	/* ========================================================================= */
 	function counter() {
 		var oTop;
@@ -197,7 +197,7 @@ jQuery(function ($) {
 
 
 	/* ========================================================================= */
-	/*	onscroll navigation
+	/*	Navigation State: Adds/removes 'onscroll' class to navbar for styling
 	/* ========================================================================= */
 	$(window).scroll(function() {
         if($(document).scrollTop() > 50){
