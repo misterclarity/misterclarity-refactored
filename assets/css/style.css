@@ -87,7 +87,7 @@ a:hover {
 
 a:focus,
 a:hover {
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .kill-margin-bottom {
@@ -147,7 +147,7 @@ a:hover {
 }
 
 .color {
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .sub-title {
@@ -800,7 +800,7 @@ a:hover {
 }
 
 .success {
-  background-color: #6cb670;
+  background-color: #FF9F1C;
   border-radius: 4px;
   color: #fff;
   display: none;
@@ -1650,9 +1650,9 @@ input#e-mail,
       Twitter Feed
   ==================================================================*/
 .twitter-bird span {
-  border: 2px solid #6cb670;
+  border: 2px solid #FF9F1C;
   border-radius: 50px;
-  color: #6cb670;
+  color: #FF9F1C;
   display: inline-block;
   margin-bottom: 50px;
   height: 90px;
@@ -1668,7 +1668,7 @@ input#e-mail,
 }
 
 .tweet a {
-  color: #6cb670;
+  color: #FF9F1C;
 }
 
 /*=================================================================
@@ -1680,9 +1680,9 @@ input#e-mail,
 }
 
 .blog-icon {
-  border: 1px solid #6CB670;
+  border: 1px solid #FF9F1C;
   border-radius: 50%;
-  color: #6CB670;
+  color: #FF9F1C;
   display: inline-block;
   padding: 16px 20px;
 }
@@ -1769,7 +1769,7 @@ input#e-mail,
 }
 
 .post-meta a:hover {
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .post-excerpt .more {
@@ -1783,7 +1783,7 @@ input#e-mail,
 }
 
 .post-excerpt .more a:hover {
-  background-color: #6CB670;
+  background-color: #FF9F1C;
   color: #fff;
 }
 
@@ -1831,9 +1831,9 @@ aside.widget {
 }
 
 .tab-post-nav li.active a {
-  border-top: 3px solid #6cb670;
+  border-top: 3px solid #FF9F1C;
   background-color: #2F383D;
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .tab-pane.active .clearfix:first-child {
@@ -1851,7 +1851,7 @@ aside.widget {
 }
 
 .tab-excerpt h4 a:hover {
-  color: #6cb670;
+  color: #FF9F1C;
 }
 
 .tab-post-nav li a {
@@ -1870,7 +1870,7 @@ aside.widget {
 
 .categories > li:hover a {
   padding-left: 10px;
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .categories > li:last-child {
@@ -1891,7 +1891,7 @@ aside.widget {
 }
 
 .widget-content .tag:hover {
-  background-color: #6CB670;
+  background-color: #FF9F1C;
   color: #fff;
 }
 
@@ -1927,7 +1927,7 @@ aside.widget {
 
 .post-pagination ul li a:hover,
 .post-pagination ul li.active a {
-  background-color: #6CB670;
+  background-color: #FF9F1C;
   color: #fff;
 }
 
@@ -1941,7 +1941,7 @@ aside.widget {
 }
 
 blockquote {
-  border-left: 5px solid #6cb670;
+  border-left: 5px solid #FF9F1C;
   font-style: italic;
   line-height: 22px;
   padding: 20px 20px 10px 20px;
@@ -1956,7 +1956,7 @@ blockquote {
 }
 
 .next-prev a:hover {
-  color: #6CB670;
+  color: #FF9F1C;
 }
 
 .prev-post i {
@@ -2028,7 +2028,7 @@ blockquote {
 
 .author-comment cite a:hover,
 .replay:hover {
-  color: #6CB670;
+  color: #FF9F1C;
   text-decoration: underline;
 }
 
@@ -2054,7 +2054,7 @@ blockquote {
 }
 
 #comment-form .form-control:hover {
-  border-color: #6CB670;
+  border-color: #FF9F1C;
 }
 
 .form-group:last-child,
