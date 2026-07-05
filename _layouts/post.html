@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="blog-post">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<header class="blog-post-header text-center">
+					<h1>{{ page.title }}</h1>
+					<p class="blog-post-meta">{{ page.date | date: "%B %-d, %Y" }} &middot; {{ page.author }}</p>
+				</header>
+				{% if page.image and page.image != "" %}
+				<img class="img-fluid blog-post-image" src="{{ page.image }}" alt="{{ page.title }}">
+				{% endif %}
+				<div class="blog-post-content">
+					{{ content }}
+				</div>
+				<div class="blog-post-footer text-center">
+					<a href="/blog/" class="btn btn-transparent">&larr; All posts</a>
+					<a href="https://calendly.com/misterclarity/30min" class="btn btn-main">Book a free intro
+						session</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

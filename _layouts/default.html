@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% if page.title %}{{ page.title }} | Mister Clarity{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{{ page.description | default: site.description }}">
+	<meta name="theme-color" content="#FF9F1C">
+	<link rel="icon" type="image/png" href="/assets/images/logo.png">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="{{ page.title | default: site.title }}">
+	<meta property="og:description" content="{{ page.description | default: site.description }}">
+	{% if page.image %}<meta property="og:image" content="{{ page.image }}">{% endif %}
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://static.oracle.com/cdn/apex/19.2.0.00.18/libraries/font-apex/2.1/css/font-apex.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Anaheim|Quattrocento+Sans:400,700&display=swap">
+	<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body id="body" class="solid-nav">
+
+	<!-- Navigation -->
+	<section class="fixed-top navigation">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="navbar-brand p-0 d-flex align-items-center" href="/">
+					<img class="img-fluid brand-logo" src="/assets/images/logo.png"
+						alt="Mister Clarity | AstroCartography & Transition Coaching">
+					<span class="brand-name">Mister <span class="brand-accent">Clarity</span></span>
+				</a>
+
+				<button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navigation">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link" href="/blog/">blog</a></li>
+						<li class="nav-item"><a class="nav-link" href="/#testimonial">testimonial</a></li>
+						<li class="nav-item"><a class="nav-link" href="/#pricing">pricing</a></li>
+						<li class="nav-item"><a class="nav-link" href="/#contact">contact</a></li>
+						<li class="nav-item"><a class="nav-link" target="_blank" rel="noopener"
+								href="https://www.spaceholderz.com/">spaceholderz</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</section>
+
+	{{ content }}
+
+	<!-- Footer -->
+	<footer class="text-center" style="padding: 25px 15px; background: #1a1a2e;">
+		<p style="margin: 0; color: #ccc;">Copyright &copy; 2026 <a href="https://www.misterclarity.com/"
+				style="color:#FF9F1C;">Mister Clarity</a>. All Rights Reserved.</p>
+	</footer>
+
+	<!-- JavaScript Imports -->
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

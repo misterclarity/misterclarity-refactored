@@ -3135,3 +3135,111 @@ div#testimonials {
 img[src$="logo.png"] {
   filter: hue-rotate(275deg) saturate(1.4) brightness(1.15);
 }
+
+/*=================================================================
+    Blog (Jekyll)
+  ==================================================================*/
+.solid-nav .navigation {
+  background: #1d2024 !important;
+}
+
+.solid-nav .navbar-brand {
+  visibility: visible;
+  opacity: 1;
+}
+
+.blog-post,
+.blog-list {
+  padding: 140px 0 80px;
+}
+
+.blog-post-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.blog-post-meta {
+  color: #FF9F1C;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.blog-post-image {
+  width: 100%;
+  border-radius: 12px;
+  margin: 25px 0 35px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.blog-post-content {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+
+.blog-post-content p {
+  margin-bottom: 22px;
+}
+
+.blog-post-content blockquote {
+  border-left: 3px solid #FF9F1C;
+  padding: 10px 20px;
+  margin: 30px 0;
+  color: #ffd9a0;
+  font-style: italic;
+}
+
+.blog-post-content a {
+  color: #FF9F1C;
+}
+
+.blog-post-footer {
+  margin-top: 50px;
+}
+
+.blog-post-footer .btn {
+  margin: 8px;
+}
+
+/* Blog index cards */
+.blog-card {
+  display: block;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  color: #fff;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.blog-card:hover,
+.blog-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-decoration: none;
+}
+
+.blog-card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.blog-card-image-empty {
+  background: linear-gradient(135deg, #1d2024, #FF9F1C33);
+}
+
+.blog-card-body {
+  padding: 20px 22px 25px;
+}
+
+.blog-card-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.blog-card-body p {
+  color: #cfd5da;
+  margin-bottom: 6px;
+}

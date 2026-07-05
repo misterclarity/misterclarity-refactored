@@ -1,0 +1,10 @@
+title: Mister Clarity | AstroCartography & Transition Coaching
+description: Helping you thrive.
+url: https://misterclarity.com
+permalink: /blog/:title/
+markdown: kramdown
+exclude:
+  - exampleSite
+  - static
+  - README.md
+  - LICENSE
