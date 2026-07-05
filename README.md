@@ -1,6 +1,6 @@
-# Mister Clarity | Astrocartography & Transition Coaching
+# Mister Clarity | AstroCartography & Transition Coaching
 
-A professional landing page for **Mister Clarity**, specializing in Astrocartography and non-linear education coaching. This site is designed to showcase coaching services, client testimonials, and pricing plans.
+A professional landing page for **Mister Clarity**, specializing in AstroCartography and transition coaching. This site is designed to showcase coaching services, client testimonials, and pricing plans.
 
 ## ✨ Features
 
@@ -8,7 +8,7 @@ A professional landing page for **Mister Clarity**, specializing in Astrocartogr
 - **About Me**: Professional biography and introduction to services.
 - **Testimonials**: Interactive carousel showcasing client feedback.
 - **Pricing**: Clear breakdown of coaching packages.
-- **Contact Form**: Integrated Netlify-ready contact form for inquiries.
+- **Contact Form**: Contact form for inquiries, powered by [FormSubmit](https://formsubmit.co/) — works on any static host, including GitHub Pages.
 - **Responsive Design**: Fully optimized for mobile and desktop viewing.
 
 ## 🛠️ Technology Stack
@@ -31,7 +31,10 @@ You only need a modern web browser to view this project locally.
 
 1.  Clone the repository or download the ZIP file.
 2.  Open `index.html` in your favorite web browser.
-3.  (Optional) If you want to test the contact form, deploy the project to [Netlify](https://www.netlify.com/).
+
+### Deployment
+
+Published with GitHub Pages from the `main` branch root. The contact form posts to FormSubmit, so no server is required — the first submission triggers a one-time confirmation email to the site owner.
 
 ## 📂 Project Structure
 
