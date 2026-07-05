@@ -1,0 +1,123 @@
+---
+layout: default
+title: Resources for your journey
+description: What coaching unlocks, hand-picked guides and perspectives, and reflections from the blog — everything for your inner journey in one place.
+redirect_from:
+  - /blog/
+---
+<section class="blog-list resources-page">
+	<div class="container">
+		<div class="title text-center">
+			<h2>Resources <span class="color">for your journey</span></h2>
+			<p>What we work on, what to explore, and what I've written along the way.</p>
+			<div class="border-meghna"></div>
+		</div>
+
+		<!-- Your Progress -->
+		<h3 class="res-subhead text-center">Your <span class="color">Progress</span></h3>
+		<p class="res-subtitle text-center">What opens up when you do the inner work.</p>
+		<div class="row progress-grid">
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-emoji-smile"></i>
+					<h4>Motivation</h4>
+					<p>Waking up feeling grateful to be alive. Your spontaneity is key to fulfillment, regardless of
+						circumstances.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-compass"></i>
+					<h4>Clarity</h4>
+					<p>Observing and accepting reality provides direction in life. Decisions become intuitive and
+						getting back on track feels effortless.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-lightning-charge"></i>
+					<h4>Focus</h4>
+					<p>(Re)aligning with your needs validates and increases your drive. Focusing on your vision grants
+						momentum.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-tree"></i>
+					<h4>Grounding</h4>
+					<p>Naturally stepping into a place of calm and composure, especially when dealing with a novel or
+						complex situation.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-lightbulb"></i>
+					<h4>Intelligence</h4>
+					<p>Enhancing your mental capacity by operating from a place of deep wisdom and genuine
+						acceptance.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="progress-item">
+					<i class="bi-graph-up-arrow"></i>
+					<h4>Confidence</h4>
+					<p>Overcoming blockages activates latent resources you always had, but could not access.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- External Resources -->
+		<h3 class="res-subhead text-center">Hand-picked <span class="color">Guides &amp; Perspectives</span></h3>
+		<p class="res-subtitle text-center">Videos, articles, and practices I recommend on the way.</p>
+		<div class="row">
+			{% assign resources = "Identity's journey|/images/mirror.jpg|Perspectives|https://youtu.be/rd3yeX1-SaM?t=3;
+			Self-care|/images/needs.jpg|Perspectives|https://www.facebook.com/Nepenthe.DZ/photos/a.992878550889643/1458004147710412;
+			The role of sleep|/images/sleep.jpg|Guides|https://www.theschooloflife.com/thebookoflife/the-role-of-sleep-in-mental-health/;
+			To Yoga or not to Yoga|/images/yoga.jpg|Perspectives|https://youtu.be/_8kV4FHSdNA;
+			More than gold|/images/morethangold.jpg|Perspectives|https://www.theschooloflife.com/thebookoflife/the-concept-of-voluntary-poverty/;
+			Pit stop|/images/mixtape.png|Guides|https://rayray.glitch.me/;
+			Love|/images/love.jpg|Perspectives|https://youtu.be/9tVkWYv484Y;
+			Overcoming bad inner voices|/images/badinnervoices.png|Guides|https://youtu.be/gGuZVuUBeiQ;
+			20' guided meditation|/images/meditation20.jpg|Guides|https://youtu.be/_FFDfOzTgGg;
+			Levels of consciousness|/images/walk.jpg|Guides|https://youtu.be/FQabwV9YjPo;
+			The power of surrender|/images/surrender.jpg|Perspectives|https://youtu.be/tTagzjCROPU;
+			Joy time|/images/meditation.jpg|Guides|https://youtu.be/9Euz0cUpyPI;
+			The nature of life|/images/natureoflife.jpg|Interviews|https://youtu.be/lHt0SJsbO1o" | split: ";" %}
+			{% for r in resources %}
+			{% assign parts = r | strip | split: "|" %}
+			<div class="col-lg-4 col-md-6">
+				<a class="blog-card resource-card" href="{{ parts[3] }}" target="_blank" rel="noopener">
+					<div class="blog-card-image" style="background-image: url('{{ parts[1] }}')"></div>
+					<div class="blog-card-body">
+						<span class="resource-tag">{{ parts[2] }}</span>
+						<h3>{{ parts[0] }}</h3>
+						<p class="resource-open">Open <i class="bi-box-arrow-up-right"></i></p>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+
+		<!-- Blog -->
+		<h3 class="res-subhead text-center">The <span class="color">Blog</span></h3>
+		<p class="res-subtitle text-center">Reflections on coaching, clarity, and the inner journey.</p>
+		<div class="row">
+			{% for post in site.posts %}
+			<div class="col-lg-4 col-md-6">
+				<a class="blog-card" href="{{ post.url }}">
+					{% if post.image and post.image != "" %}
+					<div class="blog-card-image" style="background-image: url('{{ post.image }}')"></div>
+					{% else %}
+					<div class="blog-card-image blog-card-image-empty"></div>
+					{% endif %}
+					<div class="blog-card-body">
+						<h3>{{ post.title }}</h3>
+						<p class="blog-post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+						<p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
