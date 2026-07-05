@@ -8,3 +8,5 @@ exclude:
   - static
   - README.md
   - LICENSE
+plugins:
+  - jekyll-redirect-from

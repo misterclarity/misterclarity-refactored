@@ -3243,3 +3243,60 @@ img[src$="logo.png"] {
   color: #cfd5da;
   margin-bottom: 6px;
 }
+
+/* Resources page */
+.res-subhead {
+  font-size: 1.8rem;
+  margin: 70px 0 8px;
+}
+
+.res-subtitle {
+  color: #cfd5da;
+  margin-bottom: 35px;
+}
+
+.progress-item {
+  text-align: center;
+  padding: 25px 20px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  height: calc(100% - 30px);
+}
+
+.progress-item i {
+  font-size: 2.2rem;
+  color: #FF9F1C;
+}
+
+.progress-item h4 {
+  margin: 14px 0 10px;
+  font-weight: 700;
+}
+
+.progress-item p {
+  color: #cfd5da;
+  margin: 0;
+}
+
+.resource-card .blog-card-image {
+  height: 150px;
+}
+
+.resource-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #14181d;
+  background: #FF9F1C;
+  border-radius: 10px;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+}
+
+.resource-open {
+  color: #FF9F1C !important;
+  font-size: 0.9rem;
+}
