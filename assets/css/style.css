@@ -3360,3 +3360,262 @@ img[src$="logo.png"] {
     margin-left: 0;
   }
 }
+
+/*=================================================================
+    UI/UX polish pass — micro-interactions & accessibility
+  ==================================================================*/
+
+/* Anchor offset below the fixed nav (jQuery handles smooth scrolling;
+   a CSS scroll-behavior rule would fight its scrollTop animation) */
+section[id] {
+  scroll-margin-top: 70px;
+}
+
+/* Balanced multi-line headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Slim gold-accented scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d2024;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4e595f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9F1C;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible {
+  outline: 2px solid #FF9F1C;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hero: gradient overlay with a gold glow instead of flat black */
+.hero-area:before {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 159, 28, 0.16), transparent 55%),
+    linear-gradient(180deg, rgba(10, 12, 16, 0.72) 0%, rgba(10, 12, 16, 0.5) 50%, rgba(20, 24, 29, 0.85) 100%);
+}
+
+/* Hero content entrance (CSS-only, runs once on load) */
+.hero-area .block {
+  animation: heroRise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero primary CTA reads gold — stronger conversion cue */
+.hero-area .block .btn-transparent {
+  background: #FF9F1C;
+  border-color: #FF9F1C;
+  color: #14181d;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(255, 159, 28, 0.35);
+}
+
+.hero-area .block .btn-transparent:hover,
+.hero-area .block .btn-transparent:focus {
+  background: #ffb44d;
+  border-color: #ffb44d;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(255, 159, 28, 0.45);
+}
+
+/* Scroll-down indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.6rem;
+  line-height: 1;
+  animation: hintBob 2.2s ease-in-out infinite;
+}
+
+.scroll-hint:hover,
+.scroll-hint:focus {
+  color: #FF9F1C;
+}
+
+@keyframes hintBob {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(9px);
+  }
+}
+
+/* Nav: frosted glass when scrolled, animated link underlines */
+.navigation.onscroll {
+  background: rgba(29, 32, 36, 0.85) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 2px;
+  height: 2px;
+  background: #FF9F1C;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Testimonials: decorative quote, gold-ringed avatars, softer copy */
+.client-thumb img {
+  border: 3px solid #FF9F1C;
+  padding: 3px;
+  background: #14181d;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.client-comment {
+  position: relative;
+  padding-top: 10px;
+}
+
+.client-comment::before {
+  content: '\201C';
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 0.6;
+  color: rgba(255, 159, 28, 0.45);
+}
+
+.client-comment p {
+  text-align: center;
+}
+
+.slide-arrow {
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.slide-arrow:hover {
+  color: #FF9F1C;
+  transform: scale(1.2);
+}
+
+/* Pricing: gold checkmarks on plan features */
+.pricing li {
+  position: relative;
+}
+
+.pricing li::before {
+  content: '\F26B';
+  font-family: 'bootstrap-icons';
+  color: #FF9F1C;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+/* Forms: soften inputs */
+.form-meghna .form-control {
+  border-radius: 4px;
+  padding: 10px 14px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+#contact-submit {
+  border-radius: 4px;
+}
+
+/* Call-to-action sections: gold hairline frame */
+.call-to-action {
+  border-top: 1px solid rgba(255, 159, 28, 0.25);
+  border-bottom: 1px solid rgba(255, 159, 28, 0.25);
+}
+
+/* Back-to-top button */
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 600;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(29, 32, 36, 0.9);
+  color: #FF9F1C;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 250ms ease, transform 250ms ease, visibility 250ms, background 250ms ease, color 250ms ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+  background: #FF9F1C;
+  color: #14181d;
+}
+
+/* Footer polish */
+footer {
+  border-top: 1px solid rgba(255, 159, 28, 0.2);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
