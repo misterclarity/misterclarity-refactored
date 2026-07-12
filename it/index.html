@@ -24,6 +24,10 @@
 			box-sizing: border-box;
 		}
 
+		html {
+			scroll-behavior: smooth;
+		}
+
 		body {
 			font-family: "Quattrocento Sans", sans-serif;
 			background: #fff;
@@ -49,15 +53,26 @@
 			padding: 0 20px;
 		}
 
-		/* Nav */
+		section {
+			scroll-margin-top: 72px;
+		}
+
+		/* ============ Navigation ============ */
 		.topnav {
 			position: fixed;
 			top: 0;
 			left: 0;
 			right: 0;
 			z-index: 100;
+			background: rgba(26, 26, 46, .92);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			transition: box-shadow .3s, background .3s;
+		}
+
+		.topnav.scrolled {
 			background: #1a1a2e;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+			box-shadow: 0 2px 14px rgba(0, 0, 0, .35);
 		}
 
 		.topnav .container {
@@ -82,6 +97,11 @@
 
 		.brand img {
 			height: 34px;
+			transition: transform .4s ease;
+		}
+
+		.brand:hover img {
+			transform: rotate(12deg) scale(1.08);
 		}
 
 		.topnav ul {
@@ -91,27 +111,121 @@
 		}
 
 		.topnav ul a {
+			position: relative;
 			color: rgba(255, 255, 255, .85);
 			text-decoration: none;
 			font-size: 14px;
 			letter-spacing: 1px;
 			text-transform: lowercase;
+			padding: 4px 0;
 			transition: color .3s;
 		}
 
-		.topnav ul a:hover {
+		.topnav ul a::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 100%;
+			bottom: 0;
+			height: 2px;
+			background: #FF9F1C;
+			transition: right .3s ease;
+		}
+
+		.topnav ul a:hover,
+		.topnav ul a.active {
 			color: #FF9F1C;
 		}
 
-		/* Hero */
+		.topnav ul a:hover::after,
+		.topnav ul a.active::after {
+			right: 0;
+		}
+
+		/* Hamburger */
+		.nav-toggle {
+			display: none;
+			background: none;
+			border: 0;
+			cursor: pointer;
+			padding: 8px;
+		}
+
+		.nav-toggle span {
+			display: block;
+			width: 24px;
+			height: 2px;
+			background: #fff;
+			margin: 5px 0;
+			transition: transform .3s, opacity .3s;
+		}
+
+		.nav-toggle.open span:nth-child(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+
+		.nav-toggle.open span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.nav-toggle.open span:nth-child(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+
+		/* ============ Hero ============ */
 		.hero {
+			position: relative;
 			background: linear-gradient(135deg, #16213e 0%, #1a1a2e 55%, #0f3460 100%);
 			color: #fff;
 			text-align: center;
-			padding: 170px 20px 110px;
+			padding: 180px 20px 130px;
+			overflow: hidden;
 		}
 
-		.hero i {
+		.hero::before,
+		.hero::after {
+			content: "";
+			position: absolute;
+			border-radius: 50%;
+			filter: blur(70px);
+			opacity: .35;
+			pointer-events: none;
+		}
+
+		.hero::before {
+			width: 420px;
+			height: 420px;
+			background: #FF9F1C;
+			top: -160px;
+			right: -120px;
+			animation: drift 14s ease-in-out infinite alternate;
+		}
+
+		.hero::after {
+			width: 360px;
+			height: 360px;
+			background: #0f3460;
+			bottom: -140px;
+			left: -100px;
+			animation: drift 18s ease-in-out infinite alternate-reverse;
+		}
+
+		@keyframes drift {
+			from {
+				transform: translate(0, 0) scale(1);
+			}
+
+			to {
+				transform: translate(-50px, 40px) scale(1.15);
+			}
+		}
+
+		.hero>* {
+			position: relative;
+			z-index: 1;
+		}
+
+		.hero i.hero-icon {
 			font-size: 54px;
 			color: #FF9F1C;
 			display: block;
@@ -119,7 +233,7 @@
 		}
 
 		.hero h1 {
-			font-size: 42px;
+			font-size: 46px;
 			letter-spacing: 3px;
 			margin-bottom: 10px;
 		}
@@ -140,6 +254,71 @@
 			margin: 0 auto 32px;
 		}
 
+		/* Hero entrance */
+		.hero .fade-up {
+			opacity: 0;
+			transform: translateY(22px);
+			animation: heroIn .7s ease-out forwards;
+		}
+
+		.hero .fade-up:nth-child(2) {
+			animation-delay: .12s;
+		}
+
+		.hero .fade-up:nth-child(3) {
+			animation-delay: .24s;
+		}
+
+		.hero .fade-up:nth-child(4) {
+			animation-delay: .36s;
+		}
+
+		.hero .fade-up:nth-child(5) {
+			animation-delay: .48s;
+		}
+
+		@keyframes heroIn {
+			to {
+				opacity: 1;
+				transform: none;
+			}
+		}
+
+		.scroll-hint {
+			position: absolute;
+			left: 50%;
+			bottom: 22px;
+			transform: translateX(-50%);
+			color: rgba(255, 255, 255, .7);
+			font-size: 26px;
+			z-index: 1;
+			animation: bounce 2s infinite;
+			text-decoration: none;
+		}
+
+		.scroll-hint:hover {
+			color: #FF9F1C;
+		}
+
+		@keyframes bounce {
+
+			0%,
+			20%,
+			50%,
+			80%,
+			100% {
+				transform: translate(-50%, 0);
+			}
+
+			40% {
+				transform: translate(-50%, -9px);
+			}
+
+			60% {
+				transform: translate(-50%, -5px);
+			}
+		}
+
 		.btn-main {
 			display: inline-block;
 			padding: 13px 42px;
@@ -151,17 +330,19 @@
 			font-size: 15px;
 			letter-spacing: 2px;
 			text-transform: uppercase;
-			transition: background .3s, color .3s;
+			transition: background .3s, color .3s, transform .2s, box-shadow .3s;
 		}
 
 		.btn-main:hover {
 			background: #FF9F1C;
 			color: #1a1a2e;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 24px rgba(255, 159, 28, .35);
 		}
 
-		/* Sections */
+		/* ============ Sections ============ */
 		.section {
-			padding: 80px 0;
+			padding: 90px 0;
 		}
 
 		.section-alt {
@@ -170,7 +351,7 @@
 
 		.title {
 			text-align: center;
-			margin-bottom: 50px;
+			margin-bottom: 54px;
 		}
 
 		.title h2 {
@@ -183,6 +364,7 @@
 			height: 3px;
 			background: #FF9F1C;
 			margin: 16px auto 0;
+			border-radius: 2px;
 		}
 
 		.about-text {
@@ -192,6 +374,20 @@
 			font-size: 17px;
 		}
 
+		/* Scroll reveal */
+		.reveal {
+			opacity: 0;
+			transform: translateY(26px);
+			transition: opacity .65s ease-out, transform .65s ease-out;
+			transition-delay: var(--d, 0s);
+		}
+
+		.reveal.in {
+			opacity: 1;
+			transform: none;
+		}
+
+		/* ============ Cards ============ */
 		.grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -199,17 +395,36 @@
 		}
 
 		.card {
+			position: relative;
 			background: #fff;
 			border: 1px solid #eee;
 			border-radius: 6px;
 			padding: 36px 28px;
 			text-align: center;
 			transition: transform .3s, box-shadow .3s;
+			overflow: hidden;
+		}
+
+		.card::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			background: #FF9F1C;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform .35s ease;
 		}
 
 		.card:hover {
 			transform: translateY(-6px);
-			box-shadow: 0 12px 28px rgba(26, 26, 46, .12);
+			box-shadow: 0 14px 30px rgba(26, 26, 46, .14);
+		}
+
+		.card:hover::before {
+			transform: scaleX(1);
 		}
 
 		.card i {
@@ -217,6 +432,11 @@
 			color: #FF9F1C;
 			display: block;
 			margin-bottom: 16px;
+			transition: transform .3s ease;
+		}
+
+		.card:hover i {
+			transform: translateY(-4px) scale(1.12);
 		}
 
 		.card h3 {
@@ -225,7 +445,7 @@
 			margin-bottom: 12px;
 		}
 
-		/* Experience timeline */
+		/* ============ Timeline ============ */
 		.timeline {
 			max-width: 800px;
 			margin: 0 auto;
@@ -236,24 +456,39 @@
 
 		.tl-item {
 			position: relative;
-			padding-bottom: 42px;
+			padding: 14px 18px 28px;
+			margin-bottom: 14px;
+			border-radius: 6px;
+			transition: background .3s, transform .3s;
 		}
 
 		.tl-item:last-child {
-			padding-bottom: 0;
+			margin-bottom: 0;
+			padding-bottom: 14px;
+		}
+
+		.tl-item:hover {
+			background: #f7f7f9;
+			transform: translateX(6px);
 		}
 
 		.tl-item::before {
 			content: "";
 			position: absolute;
-			left: -38px;
-			top: 6px;
+			left: -39px;
+			top: 22px;
 			width: 14px;
 			height: 14px;
 			border-radius: 50%;
 			background: #FF9F1C;
 			border: 3px solid #fff;
 			box-shadow: 0 0 0 2px #FF9F1C;
+			transition: box-shadow .3s, transform .3s;
+		}
+
+		.tl-item:hover::before {
+			transform: scale(1.25);
+			box-shadow: 0 0 0 2px #FF9F1C, 0 0 14px rgba(255, 159, 28, .7);
 		}
 
 		.tl-item h3 {
@@ -267,16 +502,21 @@
 		}
 
 		.tl-item .tl-date {
-			font-size: 14px;
-			color: #999;
+			display: inline-block;
+			font-size: 13px;
+			color: #b06800;
+			background: rgba(255, 159, 28, .12);
+			border-radius: 12px;
+			padding: 1px 12px;
 			letter-spacing: 1px;
-			margin-bottom: 8px;
+			margin: 6px 0 8px;
 		}
 
 		.tl-item p {
 			color: #555;
 		}
 
+		/* ============ Skills ============ */
 		.skills {
 			display: flex;
 			flex-wrap: wrap;
@@ -293,32 +533,15 @@
 			border-radius: 20px;
 			font-size: 14px;
 			letter-spacing: 1px;
+			cursor: default;
+			transition: background .3s, color .3s, transform .2s, box-shadow .3s;
 		}
 
-		/* Education & languages */
-		.edu-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-			gap: 22px;
-			max-width: 920px;
-			margin: 0 auto;
-		}
-
-		.edu-item {
-			background: #fff;
-			border: 1px solid #eee;
-			border-radius: 6px;
-			padding: 22px 24px;
-		}
-
-		.edu-item h3 {
-			font-size: 17px;
+		.skills span:hover {
+			background: #FF9F1C;
 			color: #1a1a2e;
-		}
-
-		.edu-item p {
-			color: #666;
-			font-size: 15px;
+			transform: translateY(-3px);
+			box-shadow: 0 8px 18px rgba(255, 159, 28, .3);
 		}
 
 		.lang-row {
@@ -336,9 +559,49 @@
 			border-radius: 20px;
 			font-size: 14px;
 			letter-spacing: 1px;
+			cursor: default;
+			transition: background .3s, transform .2s;
 		}
 
-		/* Contact */
+		.lang-row span:hover {
+			background: rgba(255, 159, 28, .12);
+			transform: translateY(-3px);
+		}
+
+		/* ============ Education ============ */
+		.edu-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 22px;
+			max-width: 920px;
+			margin: 0 auto;
+		}
+
+		.edu-item {
+			background: #fff;
+			border: 1px solid #eee;
+			border-left: 3px solid #FF9F1C;
+			border-radius: 6px;
+			padding: 22px 24px;
+			transition: transform .3s, box-shadow .3s;
+		}
+
+		.edu-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 22px rgba(26, 26, 46, .1);
+		}
+
+		.edu-item h3 {
+			font-size: 17px;
+			color: #1a1a2e;
+		}
+
+		.edu-item p {
+			color: #666;
+			font-size: 15px;
+		}
+
+		/* ============ Contact ============ */
 		.contact {
 			background: #1a1a2e;
 			color: #fff;
@@ -357,27 +620,34 @@
 		}
 
 		.contact .meta {
-			margin-top: 30px;
-			color: rgba(255, 255, 255, .7);
-			font-size: 15px;
+			margin-top: 34px;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			gap: 24px;
+			gap: 16px;
+		}
+
+		.contact .meta>* {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: rgba(255, 255, 255, .85);
+			font-size: 15px;
+			text-decoration: none;
+			border: 1px solid rgba(255, 255, 255, .18);
+			border-radius: 24px;
+			padding: 9px 20px;
+			transition: border-color .3s, color .3s, transform .2s;
 		}
 
 		.contact .meta i {
 			color: #FF9F1C;
-			margin-right: 6px;
-		}
-
-		.contact .meta a {
-			color: rgba(255, 255, 255, .85);
-			text-decoration: none;
 		}
 
 		.contact .meta a:hover {
 			color: #FF9F1C;
+			border-color: #FF9F1C;
+			transform: translateY(-2px);
 		}
 
 		footer {
@@ -393,13 +663,129 @@
 			text-decoration: none;
 		}
 
-		@media (max-width: 640px) {
+		/* ============ Back to top ============ */
+		.back-to-top {
+			position: fixed;
+			right: 22px;
+			bottom: 22px;
+			z-index: 99;
+			width: 44px;
+			height: 44px;
+			border: 0;
+			border-radius: 50%;
+			background: #FF9F1C;
+			color: #1a1a2e;
+			font-size: 20px;
+			cursor: pointer;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(12px);
+			transition: opacity .3s, transform .3s, visibility .3s, box-shadow .3s;
+			box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+		}
+
+		.back-to-top.visible {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+		}
+
+		.back-to-top:hover {
+			box-shadow: 0 10px 22px rgba(255, 159, 28, .45);
+			transform: translateY(-3px);
+		}
+
+		/* ============ Responsive ============ */
+		@media (max-width: 767px) {
+			.nav-toggle {
+				display: block;
+			}
+
 			.topnav ul {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				flex-direction: column;
+				gap: 0;
+				background: #1a1a2e;
+				box-shadow: 0 12px 20px rgba(0, 0, 0, .35);
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height .35s ease;
+			}
+
+			.topnav ul.open {
+				max-height: 320px;
+			}
+
+			.topnav ul li {
+				text-align: center;
+				border-top: 1px solid rgba(255, 255, 255, .06);
+			}
+
+			.topnav ul a {
+				display: block;
+				padding: 14px 0;
+			}
+
+			.topnav ul a::after {
 				display: none;
+			}
+
+			.hero {
+				padding: 150px 20px 110px;
 			}
 
 			.hero h1 {
 				font-size: 30px;
+			}
+
+			.section {
+				padding: 66px 0;
+			}
+
+			.timeline {
+				padding-left: 22px;
+			}
+
+			.tl-item::before {
+				left: -31px;
+			}
+
+			.tl-item:hover {
+				transform: none;
+			}
+		}
+
+		/* ============ Reduced motion ============ */
+		@media (prefers-reduced-motion: reduce) {
+			html {
+				scroll-behavior: auto;
+			}
+
+			.hero::before,
+			.hero::after,
+			.scroll-hint {
+				animation: none;
+			}
+
+			.hero .fade-up {
+				opacity: 1;
+				transform: none;
+				animation: none;
+			}
+
+			.reveal {
+				opacity: 1;
+				transform: none;
+				transition: none;
+			}
+
+			*,
+			*::before,
+			*::after {
+				transition-duration: .01ms !important;
 			}
 		}
 	</style>
@@ -408,13 +794,17 @@
 <body>
 
 	<!-- Navigation -->
-	<nav class="topnav">
+	<nav class="topnav" id="topnav">
 		<div class="container">
 			<a class="brand" href="/">
 				<img src="/assets/images/logo.png" alt="Vlad Petrea">
 				<span>Vlad <span class="accent">Petrea</span></span>
 			</a>
-			<ul>
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+				aria-controls="nav-menu">
+				<span></span><span></span><span></span>
+			</button>
+			<ul id="nav-menu">
 				<li><a href="#about">about</a></li>
 				<li><a href="#services">services</a></li>
 				<li><a href="#experience">experience</a></li>
@@ -427,22 +817,25 @@
 
 	<!-- Hero -->
 	<header class="hero">
-		<i class="bi-code-slash"></i>
-		<h1>Vlad <span class="accent">Petrea</span></h1>
-		<p class="subtitle">IT Consultant | Digital Sustainability Analyst</p>
-		<p>Creating resilient solutions in complex environments — digital transformation, IT training, and
-			consulting. Currently building a small corner of the agentic web.</p>
-		<a class="btn-main" href="#contact">Work with me</a>
+		<i class="bi-code-slash hero-icon fade-up"></i>
+		<h1 class="fade-up">Vlad <span class="accent">Petrea</span></h1>
+		<p class="subtitle fade-up">IT Consultant | Digital Sustainability Analyst</p>
+		<p class="fade-up">Creating resilient solutions in complex environments — digital transformation, IT training,
+			and consulting. Currently building a small corner of the agentic web.</p>
+		<div class="fade-up"><a class="btn-main" href="#contact">Work with me</a></div>
+		<a class="scroll-hint" href="#about" aria-label="Scroll down to content">
+			<i class="bi-chevron-double-down"></i>
+		</a>
 	</header>
 
 	<!-- About -->
 	<section class="section" id="about">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>About <span class="accent">me</span></h2>
 				<div class="rule"></div>
 			</div>
-			<p class="about-text">
+			<p class="about-text reveal">
 				With a background spanning digital transformation, IT training, and consulting, my career emerged
 				from creating resilient solutions in complex environments. My experience includes over 20
 				hackathons, multiple ERP migration projects, and leadership roles in areas like forecasting, data
@@ -455,42 +848,42 @@
 	<!-- Services -->
 	<section class="section section-alt" id="services">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>What I <span class="accent">offer</span></h2>
 				<div class="rule"></div>
 			</div>
 			<div class="grid">
-				<div class="card">
+				<div class="card reveal">
 					<i class="bi-bar-chart-line"></i>
 					<h3>Digital Transformation & BI</h3>
 					<p>Custom applications and dashboards in Oracle APEX, Power BI, and Power Apps — from sales
 						reporting and territory mapping to ML-driven demand forecasting and inventory planning.</p>
 				</div>
-				<div class="card">
+				<div class="card reveal" style="--d:.1s">
 					<i class="bi-database-gear"></i>
 					<h3>Data Engineering & ERP</h3>
 					<p>Data pipelines and warehousing across SAP, SQL Server, Oracle, and Azure. ERP migrations,
 						EDI integration, master data cleaning, and RPA to streamline business workflows.</p>
 				</div>
-				<div class="card">
+				<div class="card reveal" style="--d:.2s">
 					<i class="bi-robot"></i>
 					<h3>AI Training & Consulting</h3>
 					<p>Conversational AI and local RAG implementations, AI workshops and training camps, and
 						mentoring — helping teams and young adults put AI to practical use.</p>
 				</div>
-				<div class="card">
+				<div class="card reveal">
 					<i class="bi-shield-check"></i>
 					<h3>Data Protection & GDPR</h3>
 					<p>GDPR implementation and compliance analysis across departments, certified in EU data
 						protection law — privacy that holds up in practice, not just on paper.</p>
 				</div>
-				<div class="card">
+				<div class="card reveal" style="--d:.1s">
 					<i class="bi-diagram-3"></i>
 					<h3>IT Management & Infrastructure</h3>
 					<p>Leading outsourced teams and IT budgets, coordinating infrastructure upgrades,
 						virtualization, networking, and process optimization projects end to end.</p>
 				</div>
-				<div class="card">
+				<div class="card reveal" style="--d:.2s">
 					<i class="bi-people"></i>
 					<h3>Mentoring & Events</h3>
 					<p>Hackathon veteran, digitalization mentor, and host of weekly co-working and networking
@@ -503,37 +896,37 @@
 	<!-- Experience -->
 	<section class="section" id="experience">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>Experience <span class="accent">highlights</span></h2>
 				<div class="rule"></div>
 			</div>
 			<div class="timeline">
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>Investor & Mentor</h3>
 					<p class="tl-org">proximata — Vienna</p>
 					<p class="tl-date">April 2026 – Present</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>Event Organizer & Host</h3>
 					<p class="tl-org">NoCrastination — Vienna</p>
 					<p class="tl-date">May 2025 – May 2026</p>
 					<p>Hosting a weekly, in-person co-working and networking event.</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>AI Trainer</h3>
 					<p class="tl-org">VIENNASpace – Austrian Institute for Education & Innovation</p>
 					<p class="tl-date">August 2025</p>
 					<p>Led the "AI Player Summer Camp" — a five-day training camp for young adults with AI
 						workshops, teambuilding, research, problem solving, and public speaking.</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>IT Curator</h3>
 					<p class="tl-org">Commons Hub — Reichenau an der Rax</p>
 					<p class="tl-date">July 2023 – July 2025</p>
 					<p>Built and maintained the IT infrastructure — networking, file server, streaming equipment,
 						3D printer & DIY lab — and developed an event & accommodation management platform.</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>IT Consultant, Trainer, PM</h3>
 					<p class="tl-org">InData GmbH — Vienna</p>
 					<p class="tl-date">June 2024 – December 2024</p>
@@ -541,14 +934,14 @@
 						management (on-premise, Azure, Autonomous Cloud), data engineering (SQL, PowerQuery, DAX),
 						and business intelligence (Power BI, Power Apps, Oracle APEX).</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>Digital Transformation Consultant</h3>
 					<p class="tl-org">VIVISOL — Vienna</p>
 					<p class="tl-date">October 2022 – March 2023</p>
 					<p>Implemented SAP + Salesforce + Heroku + Mulesoft: IT, business process & GDPR compliance
 						analysis, coaching department leads, and an automated process quality control platform.</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>Digital Transformation & Data Protection Lead</h3>
 					<p class="tl-org">Zimmer Biomet — Vienna</p>
 					<p class="tl-date">April 2016 – April 2022</p>
@@ -557,7 +950,7 @@
 						yearly IT budget of €100k, ran the Zimmer + Biomet SAP and infrastructure integration, and
 						implemented GDPR across Zimmer Biomet Austria.</p>
 				</div>
-				<div class="tl-item">
+				<div class="tl-item reveal">
 					<h3>Earlier roles</h3>
 					<p class="tl-org">Zimmer Biomet · Universität Salzburg · ING · Hervis · Ipsos</p>
 					<p class="tl-date">2004 – 2016</p>
@@ -572,11 +965,11 @@
 	<!-- Skills -->
 	<section class="section section-alt" id="skills">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>Skills & <span class="accent">tools</span></h2>
 				<div class="rule"></div>
 			</div>
-			<div class="skills">
+			<div class="skills reveal">
 				<span>Business Innovation</span>
 				<span>Conversational AI</span>
 				<span>RAG & Agentic AI</span>
@@ -592,7 +985,7 @@
 				<span>GDPR & Data Protection</span>
 				<span>IT Training & Mentoring</span>
 			</div>
-			<div class="lang-row">
+			<div class="lang-row reveal" style="--d:.15s">
 				<span>🇩🇪 German — native</span>
 				<span>🇷🇴 Romanian — native</span>
 				<span>🇬🇧 English — native</span>
@@ -603,32 +996,32 @@
 	<!-- Education -->
 	<section class="section" id="education">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>Education & <span class="accent">certifications</span></h2>
 				<div class="rule"></div>
 			</div>
 			<div class="edu-grid">
-				<div class="edu-item">
+				<div class="edu-item reveal">
 					<h3>Universität Salzburg</h3>
 					<p>English and American Studies · 2011 – 2014</p>
 				</div>
-				<div class="edu-item">
+				<div class="edu-item reveal" style="--d:.08s">
 					<h3>freeCodeCamp</h3>
 					<p>Computer Software Engineering · 2018 – 2019</p>
 				</div>
-				<div class="edu-item">
+				<div class="edu-item reveal" style="--d:.16s">
 					<h3>University of Vienna</h3>
 					<p>Data Visualization and Deep Learning · 2018</p>
 				</div>
-				<div class="edu-item">
+				<div class="edu-item reveal">
 					<h3>Animas Centre for Coaching</h3>
 					<p>Transformational Coach · 2020</p>
 				</div>
-				<div class="edu-item">
+				<div class="edu-item reveal" style="--d:.08s">
 					<h3>Bucharest University of Economic Studies</h3>
 					<p>International Business · 2004</p>
 				</div>
-				<div class="edu-item">
+				<div class="edu-item reveal" style="--d:.16s">
 					<h3>Certifications</h3>
 					<p>School of AI Vienna Dean · EU Data Protection Law · Mentor · Sprachdiplom Stufe II</p>
 				</div>
@@ -639,18 +1032,19 @@
 	<!-- Contact -->
 	<section class="section contact" id="contact">
 		<div class="container">
-			<div class="title">
+			<div class="title reveal">
 				<h2>Get in <span class="accent">touch</span></h2>
 				<div class="rule"></div>
 			</div>
-			<p>Tell me what you're working on — or what's not working — and I'll get back to you with an honest
-				assessment of how I can help.</p>
-			<a class="btn-main" href="mailto:analyst@misterclarity.com?subject=IT%20Consulting%20Inquiry">Email me</a>
-			<div class="meta">
+			<p class="reveal">Tell me what you're working on — or what's not working — and I'll get back to you with
+				an honest assessment of how I can help.</p>
+			<div class="reveal"><a class="btn-main"
+					href="mailto:analyst@misterclarity.com?subject=IT%20Consulting%20Inquiry">Email me</a></div>
+			<div class="meta reveal" style="--d:.1s">
 				<span><i class="bi-geo-alt"></i> Vienna, Austria</span>
-				<span><i class="bi-envelope"></i> <a href="mailto:analyst@misterclarity.com">analyst@misterclarity.com</a></span>
-				<span><i class="bi-linkedin"></i> <a href="https://www.linkedin.com/in/vladpetrea" target="_blank"
-						rel="noopener">linkedin.com/in/vladpetrea</a></span>
+				<a href="mailto:analyst@misterclarity.com"><i class="bi-envelope"></i> analyst@misterclarity.com</a>
+				<a href="https://www.linkedin.com/in/vladpetrea" target="_blank" rel="noopener"><i
+						class="bi-linkedin"></i> linkedin.com/in/vladpetrea</a>
 			</div>
 		</div>
 	</section>
@@ -659,6 +1053,85 @@
 	<footer>
 		Copyright &copy; 2026 <a href="/">Vlad Petrea</a>. All Rights Reserved.
 	</footer>
+
+	<!-- Back to top -->
+	<button type="button" class="back-to-top" aria-label="Back to top">
+		<i class="bi-arrow-up"></i>
+	</button>
+
+	<script>
+		(function () {
+			'use strict';
+
+			var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			// Solid nav + back-to-top visibility on scroll
+			var nav = document.getElementById('topnav');
+			var topBtn = document.querySelector('.back-to-top');
+			var onScroll = function () {
+				nav.classList.toggle('scrolled', window.scrollY > 40);
+				topBtn.classList.toggle('visible', window.scrollY > 500);
+			};
+			window.addEventListener('scroll', onScroll, { passive: true });
+			onScroll();
+
+			topBtn.addEventListener('click', function () {
+				window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+			});
+
+			// Mobile menu
+			var toggle = document.getElementById('nav-toggle');
+			var menu = document.getElementById('nav-menu');
+			toggle.addEventListener('click', function () {
+				var open = menu.classList.toggle('open');
+				toggle.classList.toggle('open', open);
+				toggle.setAttribute('aria-expanded', open);
+			});
+			menu.addEventListener('click', function (e) {
+				if (e.target.tagName === 'A') {
+					menu.classList.remove('open');
+					toggle.classList.remove('open');
+					toggle.setAttribute('aria-expanded', 'false');
+				}
+			});
+
+			// Scroll-reveal
+			var revealEls = document.querySelectorAll('.reveal');
+			if ('IntersectionObserver' in window && !reducedMotion) {
+				var io = new IntersectionObserver(function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('in');
+							io.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+				revealEls.forEach(function (el) { io.observe(el); });
+			} else {
+				revealEls.forEach(function (el) { el.classList.add('in'); });
+			}
+
+			// Scroll-spy: highlight the nav link of the section in view
+			var links = menu.querySelectorAll('a[href^="#"]');
+			var sections = [];
+			links.forEach(function (link) {
+				var sec = document.querySelector(link.getAttribute('href'));
+				if (sec) sections.push({ sec: sec, link: link });
+			});
+			if ('IntersectionObserver' in window && sections.length) {
+				var spy = new IntersectionObserver(function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							links.forEach(function (l) { l.classList.remove('active'); });
+							var match = sections.filter(function (s) { return s.sec === entry.target; })[0];
+							if (match) match.link.classList.add('active');
+						}
+					});
+				}, { rootMargin: '-45% 0px -50% 0px' });
+				sections.forEach(function (s) { spy.observe(s.sec); });
+			}
+		})();
+	</script>
 
 </body>
 
