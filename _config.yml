@@ -30,6 +30,9 @@ exclude:
   - static
   - README.md
   - LICENSE
+  # Local-only tooling. Never published: it talks to a tailnet-only LLM and
+  # carries personal data. Run it with tools/resume-generator/serve.ps1.
+  - tools
 
 plugins:
   - jekyll-redirect-from
