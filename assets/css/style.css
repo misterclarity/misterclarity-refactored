@@ -3609,6 +3609,29 @@ footer {
   border-top: 1px solid rgba(255, 159, 28, 0.2);
 }
 
+/* Animated heart in the "Welcome" heading.
+   Replaces the font-apex icon and its fa-anim-vertical-shake animation, which
+   were the only reason the site loaded a stylesheet from Oracle's APEX CDN. */
+.heart-beat {
+  display: inline-block;
+  color: #FF0064;
+  font-size: 1.15em;
+  vertical-align: -0.05em;
+  animation: heartShake 1.6s ease-in-out infinite;
+}
+
+@keyframes heartShake {
+  0%, 40%, 100% {
+    transform: translateY(0);
+  }
+  10%, 30% {
+    transform: translateY(-0.14em);
+  }
+  20% {
+    transform: translateY(0.06em);
+  }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
