@@ -1,0 +1,9 @@
+{%- comment -%}
+Cloudflare Web Analytics — cookieless, so no consent banner is required.
+Renders only once cloudflare_analytics_token is set in _config.yml, and never
+on a local build, so development traffic stays out of the numbers.
+{%- endcomment -%}
+{%- if site.cloudflare_analytics_token and jekyll.environment == "production" -%}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+	data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'></script>
+{%- endif -%}

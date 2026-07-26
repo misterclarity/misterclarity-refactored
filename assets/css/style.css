@@ -3514,6 +3514,29 @@ button:focus-visible,
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Monogram stand-in for clients who gave a testimonial but no photo.
+   Matches the gold ring of the photo avatars so the carousel stays even. */
+.client-thumb .client-initials {
+  width: 115px;
+  height: 115px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #FF9F1C;
+  background: #14181d;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Anaheim", sans-serif;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-indent: 2px;
+  color: #FF9F1C;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .client-comment {
   position: relative;
   padding-top: 10px;

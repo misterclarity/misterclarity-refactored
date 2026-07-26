@@ -17,6 +17,11 @@ social:
   links:
     - https://www.linkedin.com/in/vladpetrea
 
+# Cloudflare Web Analytics. Paste the token from the dashboard snippet
+# (dash.cloudflare.com -> Analytics & Logs -> Web Analytics -> Add a site).
+# While this is empty, no analytics script is emitted at all.
+cloudflare_analytics_token: ""
+
 permalink: /blog/:title/
 markdown: kramdown
 
