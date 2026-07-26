@@ -4,6 +4,8 @@ title: "Self-Love Principles (Food)"
 date: 2020-08-22T15:52:12Z
 author: Vlad-Emil Petrea
 image: /images/food.jpg
+image_width: 640
+image_height: 436
 description: "coaching"
 ---
 **Principles to eat by:**

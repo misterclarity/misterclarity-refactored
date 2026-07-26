@@ -4,6 +4,8 @@ title: "Self-Love Principles (Affirmations)"
 date: 2020-12-07T21:00:00Z
 author: Vlad-Emil Petrea
 image: /images/affirmations.jpg
+image_width: 640
+image_height: 426
 description: "self-love affirmations"
 ---
 We tend to live life in the lofty realm of the mind. Society encourages this through an emphasis on comparison, achievement, and milestones. We are often churning through ideas, situations, or emotions until they feel acceptable enough to be allowed entry into our hearts. A great inner tension is created by over-analysis and many will admit to being overthinkers. 

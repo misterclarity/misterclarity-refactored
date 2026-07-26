@@ -4,6 +4,8 @@ title: "The expert"
 date: 2020-07-22T07:30:00Z
 author: Vlad-Emil Petrea
 image: /images/theexpert.jpg
+image_width: 634
+image_height: 418
 description: "coaching"
 ---
 A coaching session is said to have no expert. I tend to disagree with this principle. While this is meant as a reminder to the coach that the client is creative, resourceful, and whole, during my coaching practice I have noticed there is always an expert present. Namely, **the client**.

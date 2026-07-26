@@ -4,6 +4,8 @@ title: "Supermarket Society"
 date: 2020-08-13T20:52:12Z
 author: Vlad-Emil Petrea
 image: /images/supermarket.jpg
+image_width: 640
+image_height: 427
 description: "coaching"
 ---
 I was talking to a friend today. Her words made me think of a surprising metaphor. She mentioned struggling with the pressure between living in a  relaxed manner (doing seemingly non-productive activities like going for walks and meeting with friends) and pursuing the many things in life that she wants to achieve. This is what came to my mind...

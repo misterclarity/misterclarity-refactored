@@ -1205,6 +1205,7 @@ a:hover {
   margin: 0 auto;
   max-width: 115px;
   width: 100%;
+  height: auto;
 }
 
 .client-meta {
@@ -3087,6 +3088,7 @@ div#testimonials {
 .profile-photo {
   max-width: 380px;
   width: 100%;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
@@ -3166,6 +3168,7 @@ img[src$="logo.png"] {
 
 .blog-post-image {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   margin: 25px 0 35px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);

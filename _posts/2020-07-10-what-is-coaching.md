@@ -4,6 +4,8 @@ title: "What is coaching?"
 date: 2020-07-10T17:52:12.000+02:00
 author: Vlad-Emil Petrea
 image: /images/what-is-coaching.jpg
+image_width: 640
+image_height: 427
 description: "coaching"
 ---
 During a 1-on-1 coaching session we create a safe space for sharing thoughts, feelings, and emotions. Once a clear goal is identified, the coaching session uses conversation and active listening to uncover your hidden resources, increase your confidence, and achieve clarity. You will be amazed by how much stronger, more able, and more resourceful you actually are!
