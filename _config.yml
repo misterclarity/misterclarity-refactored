@@ -1,12 +1,33 @@
-title: Mister Clarity | AstroCartography & Transition Coaching
-description: Helping you thrive.
+title: Mister Clarity
+tagline: AstroCartography & Transition Coaching
+description: >-
+  Transition coaching combined with precise AstroCartography — personalized
+  location guidance to help you find the place where you are meant to thrive.
 url: https://misterclarity.com
+lang: en_US
+timezone: Europe/Vienna
+logo: /assets/images/logo.png
+
+author:
+  name: Vlad-Emil Petrea
+  email: coach@misterclarity.com
+
+social:
+  name: Vlad-Emil Petrea
+  links:
+    - https://www.linkedin.com/in/vladpetrea
+
 permalink: /blog/:title/
 markdown: kramdown
+
 exclude:
   - exampleSite
   - static
   - README.md
   - LICENSE
+
 plugins:
   - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed

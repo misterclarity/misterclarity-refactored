@@ -1,3 +1,7 @@
+---
+# Empty front matter so Jekyll renders this page and jekyll-sitemap lists it.
+# No layout: the markup below is the complete page.
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +13,48 @@
 		content="Welcome. Choose your path: AstroCartography & Transition Coaching with Mister Clarity, or the IT consulting portfolio of Vlad-Emil Petrea.">
 	<meta name="theme-color" content="#FF9F1C">
 	<link rel="icon" type="image/png" href="/assets/images/logo.png">
+	<link rel="canonical" href="https://misterclarity.com/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Vlad-Emil Petrea">
+	<meta property="og:url" content="https://misterclarity.com/">
 	<meta property="og:title" content="Vlad-Emil Petrea | Coaching & IT Consulting">
 	<meta property="og:description"
 		content="Choose your path: AstroCartography & Transition Coaching, or IT consulting.">
-	<meta property="og:image" content="/assets/images/globe.webp">
+	<meta property="og:image" content="https://misterclarity.com/assets/images/globe.webp">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "WebSite",
+				"@id": "https://misterclarity.com/#website",
+				"url": "https://misterclarity.com/",
+				"name": "Vlad-Emil Petrea",
+				"description": "AstroCartography & Transition Coaching, and IT consulting.",
+				"inLanguage": "en",
+				"publisher": { "@id": "https://misterclarity.com/#person" }
+			},
+			{
+				"@type": "Person",
+				"@id": "https://misterclarity.com/#person",
+				"name": "Vlad-Emil Petrea",
+				"alternateName": "Mister Clarity",
+				"url": "https://misterclarity.com/",
+				"image": "https://misterclarity.com/assets/images/profile.webp",
+				"jobTitle": ["Transition Coach", "AstroCartographer", "IT Consultant"],
+				"email": "coach@misterclarity.com",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Vienna",
+					"addressCountry": "AT"
+				},
+				"sameAs": ["https://www.linkedin.com/in/vladpetrea"]
+			}
+		]
+	}
+	</script>
 	<script>
 		// Old homepage anchors (e.g. /#pricing) now live under /coaching/
 		(function () {
