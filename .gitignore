@@ -12,3 +12,7 @@ builds
 package-lock.json
 .scss
 .css.map
+
+# Local-only tooling. The resume generator carries the master profile and points at a
+# tailnet-only LLM, and this repo has to stay public for GitHub Pages to serve the site.
+tools/
