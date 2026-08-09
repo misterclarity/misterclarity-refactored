@@ -1,0 +1,76 @@
+# Portfolio entries rendered at /it/#portfolio, newest first.
+#
+# Adding a project: name + url is all you need. The card renders a live,
+# scaled-down preview of whatever is at that url — no screenshot to take, and it
+# never goes stale, because it is the real page.
+#
+#   name   Card title.                                          required
+#   url    Live site. This is what gets previewed.              required
+#   repo   Source link; adds a "Code" link.                     optional
+#   blurb  A sentence or two.                                   optional
+#   tags   Short labels.                                        optional
+#   image  Screenshot path, e.g. /assets/images/portfolio/x.png optional
+#          Use this when a site refuses to be framed (it sends X-Frame-Options
+#          or a frame-ancestors CSP) or looks wrong shrunk down. When set, it
+#          replaces the live preview.
+#   light  true if the site's background is light, so the placeholder shown
+#          while the preview loads matches instead of flashing dark. optional
+#
+# GitHub Pages does not send X-Frame-Options, so *.github.io projects preview
+# fine. Sites that do block framing (many SaaS apps, anything behind Cloudflare
+# bot protection) need the image fallback.
+#
+# Each preview loads a whole real page, so they are lazy-loaded and only fetched
+# as you scroll. Past roughly a dozen entries, prefer image: screenshots for the
+# older ones to keep the section light.
+
+- name: Nofetch
+  url: https://misterclarity.github.io/biz/
+  repo: https://github.com/misterclarity/biz
+  blurb: >-
+    Tools for handling sensitive files: inspect and strip metadata entirely
+    inside the browser. No upload, no account, no server — and the source is
+    public, so the privacy claim is checkable rather than promised.
+  tags: [Privacy, Client-side, JavaScript]
+
+- name: SuperPrint
+  url: https://misterclarity.github.io/SuperPrint/
+  repo: https://github.com/misterclarity/SuperPrint
+  blurb: >-
+    Endless original coloring pages for grown-ups — mandalas, stained glass,
+    botanicals and geometric patterns generated in the browser and printed free
+    at home.
+  tags: [Generative, Canvas, In-browser]
+  light: true
+
+- name: The Remembering
+  url: https://misterclarity.github.io/the-remembering/
+  repo: https://github.com/misterclarity/the-remembering
+  blurb: >-
+    A quiet WebXR self-discovery game for Meta Quest 2: seven hidden magical
+    gestures, no instructions, no stats. Built with A-Frame.
+  tags: [WebXR, A-Frame, Meta Quest]
+
+- name: DIY Workshop
+  url: https://misterclarity.github.io/3DBuilder/
+  repo: https://github.com/misterclarity/3DBuilder
+  blurb: >-
+    An AI-powered 3D design assistant that turns natural language into models
+    for DIY builds, using A-Frame in the browser.
+  tags: [AI, 3D, A-Frame, Natural language]
+
+- name: Spaceholderz
+  url: https://misterclarity.github.io/spaceholderz/
+  repo: https://github.com/misterclarity/spaceholderz
+  blurb: >-
+    Institute for Life Design Studies — combining astrology, history and
+    semiotics to read the archetypal forces behind everyday reality.
+  tags: [Research, Web]
+
+- name: pixsz
+  url: https://misterclarity.github.io/pixsz/
+  repo: https://github.com/misterclarity/pixsz
+  blurb: >-
+    A personal photo gallery. Browse and download the photographs for free —
+    and buy me a coffee if any of them turn out to be useful.
+  tags: [Photography, Gallery]
