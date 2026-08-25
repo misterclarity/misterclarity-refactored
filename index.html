@@ -155,8 +155,15 @@
 			background-image: url("/assets/images/globe.webp");
 		}
 
+		/* Celtic Weave, generated with SuperPrint (see the comment in the SVG for the
+		   seed and settings). It sits over the gradient, and the panel's dark overlay
+		   lifting on hover is what makes the pattern read more strongly there. */
 		.panel-it {
-			background-image: linear-gradient(135deg, #16213e 0%, #1a1a2e 55%, #0f3460 100%);
+			background-image: url("/assets/images/celtic-weave.svg"),
+				linear-gradient(135deg, #16213e 0%, #1a1a2e 55%, #0f3460 100%);
+			background-size: cover, cover;
+			background-position: center, center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.panel-inner {
