@@ -60,6 +60,7 @@
 	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="/assets/css/tokens.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Anaheim|Quattrocento+Sans:400,700&display=swap">
@@ -75,7 +76,7 @@
 		}
 
 		body {
-			font-family: "Quattrocento Sans", sans-serif;
+			font-family: var(--font-body);
 			background: #fff;
 			color: #333;
 			line-height: 1.6;
@@ -84,13 +85,25 @@
 		h1,
 		h2,
 		h3 {
-			font-family: "Anaheim", sans-serif;
+			font-family: var(--font-display);
 			letter-spacing: 1px;
 			text-transform: uppercase;
 		}
 
+		/* This page is the one place the accent lands on white. Brand gold is
+		   2.05:1 there, which fails WCAG even for large text, so accent TEXT
+		   defaults to the darker --gold-ink and is put back to full gold only
+		   inside the dark bands (nav, hero, contact, footer) where it is 8.3:1
+		   and legible. Gold as a *background* behind dark text is unaffected. */
 		.accent {
-			color: #FF9F1C;
+			color: var(--gold-ink-lg);
+		}
+
+		.topnav .accent,
+		.hero .accent,
+		.contact .accent,
+		footer .accent {
+			color: var(--gold);
 		}
 
 		.container {
@@ -117,7 +130,7 @@
 		}
 
 		.topnav.scrolled {
-			background: #1a1a2e;
+			background: var(--navy);
 			box-shadow: 0 2px 14px rgba(0, 0, 0, .35);
 		}
 
@@ -135,7 +148,7 @@
 			gap: 10px;
 			color: #fff;
 			text-decoration: none;
-			font-family: "Anaheim", sans-serif;
+			font-family: var(--font-display);
 			font-size: 19px;
 			letter-spacing: 2px;
 			text-transform: uppercase;
@@ -174,13 +187,13 @@
 			right: 100%;
 			bottom: 0;
 			height: 2px;
-			background: #FF9F1C;
+			background: var(--gold);
 			transition: right .3s ease;
 		}
 
 		.topnav ul a:hover,
 		.topnav ul a.active {
-			color: #FF9F1C;
+			color: var(--gold);
 		}
 
 		.topnav ul a:hover::after,
@@ -221,7 +234,7 @@
 		/* ============ Hero ============ */
 		.hero {
 			position: relative;
-			background: linear-gradient(135deg, #16213e 0%, #1a1a2e 55%, #0f3460 100%);
+			background: linear-gradient(135deg, var(--navy-dusk) 0%, var(--navy) 55%, var(--blue-deep) 100%);
 			color: #fff;
 			text-align: center;
 			padding: 180px 20px 130px;
@@ -241,7 +254,7 @@
 		.hero::before {
 			width: 420px;
 			height: 420px;
-			background: #FF9F1C;
+			background: var(--gold);
 			top: -160px;
 			right: -120px;
 			animation: drift 14s ease-in-out infinite alternate;
@@ -250,7 +263,7 @@
 		.hero::after {
 			width: 360px;
 			height: 360px;
-			background: #0f3460;
+			background: var(--blue-deep);
 			bottom: -140px;
 			left: -100px;
 			animation: drift 18s ease-in-out infinite alternate-reverse;
@@ -266,14 +279,42 @@
 			}
 		}
 
-		.hero>* {
+		/* Network constellation: nodes drifting and linking up, over a faint
+		   circuit grid. Drawn on a canvas so it scales to any viewport and
+		   stays cheap; see the heroNetwork script for the pause/reduced-motion
+		   handling. The grid itself is pure CSS so something still reads as
+		   "technical" even if the canvas never starts. */
+		.hero-grid,
+		.hero-net {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+		}
+
+		.hero-grid {
+			z-index: 0;
+			background-image:
+				repeating-linear-gradient(to right, rgba(255, 255, 255, .055) 0 1px, transparent 1px 64px),
+				repeating-linear-gradient(to bottom, rgba(255, 255, 255, .055) 0 1px, transparent 1px 64px);
+			-webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 35%, transparent 78%);
+			mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 35%, transparent 78%);
+		}
+
+		.hero-net {
+			z-index: 0;
+			opacity: .9;
+		}
+
+		.hero>*:not(.hero-grid):not(.hero-net) {
 			position: relative;
 			z-index: 1;
 		}
 
 		.hero i.hero-icon {
 			font-size: 54px;
-			color: #FF9F1C;
+			color: var(--gold);
 			display: block;
 			margin-bottom: 20px;
 		}
@@ -285,11 +326,11 @@
 		}
 
 		.hero .subtitle {
-			font-family: "Anaheim", sans-serif;
+			font-family: var(--font-display);
 			font-size: 18px;
 			letter-spacing: 3px;
 			text-transform: uppercase;
-			color: #FF9F1C;
+			color: var(--gold);
 			margin-bottom: 18px;
 		}
 
@@ -343,7 +384,7 @@
 		}
 
 		.scroll-hint:hover {
-			color: #FF9F1C;
+			color: var(--gold);
 		}
 
 		@keyframes bounce {
@@ -368,11 +409,11 @@
 		.btn-main {
 			display: inline-block;
 			padding: 13px 42px;
-			border: 2px solid #FF9F1C;
+			border: 2px solid var(--gold);
 			border-radius: 3px;
 			color: #fff;
 			text-decoration: none;
-			font-family: "Anaheim", sans-serif;
+			font-family: var(--font-display);
 			font-size: 15px;
 			letter-spacing: 2px;
 			text-transform: uppercase;
@@ -380,8 +421,8 @@
 		}
 
 		.btn-main:hover {
-			background: #FF9F1C;
-			color: #1a1a2e;
+			background: var(--gold);
+			color: var(--navy);
 			transform: translateY(-2px);
 			box-shadow: 0 10px 24px rgba(255, 159, 28, .35);
 		}
@@ -392,7 +433,7 @@
 		}
 
 		.section-alt {
-			background: #f7f7f9;
+			background: var(--paper-alt);
 		}
 
 		.title {
@@ -402,13 +443,13 @@
 
 		.title h2 {
 			font-size: 32px;
-			color: #1a1a2e;
+			color: var(--navy);
 		}
 
 		.title .rule {
 			width: 60px;
 			height: 3px;
-			background: #FF9F1C;
+			background: var(--gold);
 			margin: 16px auto 0;
 			border-radius: 2px;
 		}
@@ -458,7 +499,7 @@
 			left: 0;
 			right: 0;
 			height: 3px;
-			background: #FF9F1C;
+			background: var(--gold);
 			transform: scaleX(0);
 			transform-origin: left;
 			transition: transform .35s ease;
@@ -475,7 +516,7 @@
 
 		.card i {
 			font-size: 38px;
-			color: #FF9F1C;
+			color: var(--gold-ink-lg);
 			display: block;
 			margin-bottom: 16px;
 			transition: transform .3s ease;
@@ -487,7 +528,7 @@
 
 		.card h3 {
 			font-size: 20px;
-			color: #1a1a2e;
+			color: var(--navy);
 			margin-bottom: 12px;
 		}
 
@@ -526,7 +567,7 @@
 		}
 
 		.work-card:focus-within {
-			outline: 2px solid #FF9F1C;
+			outline: 2px solid var(--gold);
 			outline-offset: 3px;
 		}
 
@@ -537,7 +578,7 @@
 			position: relative;
 			aspect-ratio: 16 / 10;
 			overflow: hidden;
-			background: linear-gradient(135deg, #1a1a2e, #16213e);
+			background: linear-gradient(135deg, var(--navy), var(--navy-dusk));
 			border-bottom: 1px solid #eee;
 		}
 
@@ -578,7 +619,7 @@
 			justify-content: center;
 			padding: 0 16px;
 			text-align: center;
-			font-family: "Anaheim", sans-serif;
+			font-family: var(--font-display);
 			font-size: 22px;
 			letter-spacing: 3px;
 			text-transform: uppercase;
@@ -610,8 +651,8 @@
 			display: inline-flex;
 			align-items: center;
 			gap: 6px;
-			background: #FF9F1C;
-			color: #1a1a2e;
+			background: var(--gold);
+			color: var(--navy);
 			font-size: 12px;
 			letter-spacing: 1px;
 			text-transform: uppercase;
@@ -637,7 +678,7 @@
 
 		.work-body h3 {
 			font-size: 19px;
-			color: #1a1a2e;
+			color: var(--navy);
 			margin-bottom: 10px;
 		}
 
@@ -677,15 +718,15 @@
 			font-size: 13.5px;
 			letter-spacing: .5px;
 			text-transform: lowercase;
-			color: #1a1a2e;
+			color: var(--navy);
 			text-decoration: none;
 			border-bottom: 1px solid transparent;
 			transition: color .25s, border-color .25s;
 		}
 
 		.work-links a:hover {
-			color: #FF9F1C;
-			border-bottom-color: #FF9F1C;
+			color: var(--gold-ink);
+			border-bottom-color: var(--gold-ink);
 		}
 
 		/* ============ Timeline ============ */
@@ -711,7 +752,7 @@
 		}
 
 		.tl-item:hover {
-			background: #f7f7f9;
+			background: var(--paper-alt);
 			transform: translateX(6px);
 		}
 
@@ -723,20 +764,20 @@
 			width: 14px;
 			height: 14px;
 			border-radius: 50%;
-			background: #FF9F1C;
+			background: var(--gold);
 			border: 3px solid #fff;
-			box-shadow: 0 0 0 2px #FF9F1C;
+			box-shadow: 0 0 0 2px var(--gold);
 			transition: box-shadow .3s, transform .3s;
 		}
 
 		.tl-item:hover::before {
 			transform: scale(1.25);
-			box-shadow: 0 0 0 2px #FF9F1C, 0 0 14px rgba(255, 159, 28, .7);
+			box-shadow: 0 0 0 2px var(--gold), 0 0 14px rgba(255, 159, 28, .7);
 		}
 
 		.tl-item h3 {
 			font-size: 19px;
-			color: #1a1a2e;
+			color: var(--navy);
 		}
 
 		.tl-item .tl-org {
@@ -770,7 +811,7 @@
 		}
 
 		.skills span {
-			background: #1a1a2e;
+			background: var(--navy);
 			color: #fff;
 			padding: 8px 18px;
 			border-radius: 20px;
@@ -781,8 +822,8 @@
 		}
 
 		.skills span:hover {
-			background: #FF9F1C;
-			color: #1a1a2e;
+			background: var(--gold);
+			color: var(--navy);
 			transform: translateY(-3px);
 			box-shadow: 0 8px 18px rgba(255, 159, 28, .3);
 		}
@@ -796,8 +837,8 @@
 		}
 
 		.lang-row span {
-			border: 2px solid #FF9F1C;
-			color: #1a1a2e;
+			border: 2px solid var(--gold);
+			color: var(--navy);
 			padding: 8px 20px;
 			border-radius: 20px;
 			font-size: 14px;
@@ -823,7 +864,7 @@
 		.edu-item {
 			background: #fff;
 			border: 1px solid #eee;
-			border-left: 3px solid #FF9F1C;
+			border-left: 3px solid var(--gold);
 			border-radius: 6px;
 			padding: 22px 24px;
 			transition: transform .3s, box-shadow .3s;
@@ -836,7 +877,7 @@
 
 		.edu-item h3 {
 			font-size: 17px;
-			color: #1a1a2e;
+			color: var(--navy);
 		}
 
 		.edu-item p {
@@ -846,7 +887,7 @@
 
 		/* ============ Contact ============ */
 		.contact {
-			background: #1a1a2e;
+			background: var(--navy);
 			color: #fff;
 			text-align: center;
 		}
@@ -884,17 +925,17 @@
 		}
 
 		.contact .meta i {
-			color: #FF9F1C;
+			color: var(--gold);
 		}
 
 		.contact .meta a:hover {
-			color: #FF9F1C;
-			border-color: #FF9F1C;
+			color: var(--gold);
+			border-color: var(--gold);
 			transform: translateY(-2px);
 		}
 
 		footer {
-			background: #121220;
+			background: var(--navy-night);
 			color: #ccc;
 			text-align: center;
 			padding: 22px 15px;
@@ -902,7 +943,7 @@
 		}
 
 		footer a {
-			color: #FF9F1C;
+			color: var(--gold);
 			text-decoration: none;
 		}
 
@@ -916,8 +957,8 @@
 			height: 44px;
 			border: 0;
 			border-radius: 50%;
-			background: #FF9F1C;
-			color: #1a1a2e;
+			background: var(--gold);
+			color: var(--navy);
 			font-size: 20px;
 			cursor: pointer;
 			opacity: 0;
@@ -951,7 +992,7 @@
 				right: 0;
 				flex-direction: column;
 				gap: 0;
-				background: #1a1a2e;
+				background: var(--navy);
 				box-shadow: 0 12px 20px rgba(0, 0, 0, .35);
 				max-height: 0;
 				overflow: hidden;
@@ -1061,6 +1102,8 @@
 
 	<!-- Hero -->
 	<header class="hero">
+		<div class="hero-grid" aria-hidden="true"></div>
+		<canvas class="hero-net" aria-hidden="true"></canvas>
 		<i class="bi-code-slash hero-icon fade-up"></i>
 		<h1 class="fade-up">Vlad <span class="accent">Petrea</span></h1>
 		<p class="subtitle fade-up">IT Consultant | Digital Sustainability Analyst</p>
@@ -1447,6 +1490,113 @@
 					});
 				}, { rootMargin: '-45% 0px -50% 0px' });
 				sections.forEach(function (s) { spy.observe(s.sec); });
+			}
+		})();
+	</script>
+
+	<script>
+		// Hero network: nodes drift, and links fade in between any pair that
+		// drifts close enough. Density scales with the canvas area so a phone
+		// draws far fewer nodes than a desktop.
+		(function heroNetwork() {
+			var canvas = document.querySelector('.hero-net');
+			if (!canvas || !canvas.getContext) return;
+			var ctx = canvas.getContext('2d');
+			var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+			var nodes = [], w = 0, h = 0, dpr = 1, raf = null, LINK = 150;
+
+			function build() {
+				var rect = canvas.getBoundingClientRect();
+				if (!rect.width || !rect.height) return false;
+				dpr = Math.min(window.devicePixelRatio || 1, 2);
+				w = rect.width; h = rect.height;
+				canvas.width = Math.round(w * dpr);
+				canvas.height = Math.round(h * dpr);
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+				var count = Math.max(18, Math.min(80, Math.round(w * h / 13000)));
+				nodes = [];
+				for (var i = 0; i < count; i++) {
+					nodes.push({
+						x: Math.random() * w,
+						y: Math.random() * h,
+						vx: (Math.random() - 0.5) * 0.22,
+						vy: (Math.random() - 0.5) * 0.22,
+						r: Math.random() * 1.6 + 1.1,
+						gold: Math.random() < 0.22
+					});
+				}
+				return true;
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, w, h);
+				for (var i = 0; i < nodes.length; i++) {
+					for (var j = i + 1; j < nodes.length; j++) {
+						var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+						var d = Math.sqrt(dx * dx + dy * dy);
+						if (d >= LINK) continue;
+						var a = (1 - d / LINK) * 0.42;
+						ctx.strokeStyle = (nodes[i].gold || nodes[j].gold)
+							? 'rgba(255,159,28,' + a + ')'
+							: 'rgba(150,190,255,' + (a * 0.7) + ')';
+						ctx.lineWidth = 1;
+						ctx.beginPath();
+						ctx.moveTo(nodes[i].x, nodes[i].y);
+						ctx.lineTo(nodes[j].x, nodes[j].y);
+						ctx.stroke();
+					}
+				}
+				for (var k = 0; k < nodes.length; k++) {
+					var n = nodes[k];
+					ctx.fillStyle = n.gold ? 'rgba(255,159,28,.95)' : 'rgba(190,215,255,.75)';
+					ctx.beginPath();
+					ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+					ctx.fill();
+				}
+			}
+
+			function step() {
+				for (var i = 0; i < nodes.length; i++) {
+					var n = nodes[i];
+					n.x += n.vx; n.y += n.vy;
+					if (n.x < 0 || n.x > w) n.vx *= -1;
+					if (n.y < 0 || n.y > h) n.vy *= -1;
+				}
+				draw();
+				raf = requestAnimationFrame(step);
+			}
+
+			function start() {
+				if (raf !== null || !nodes.length) return;
+				if (reduced.matches) { draw(); return; }   // one static frame
+				raf = requestAnimationFrame(step);
+			}
+			function stop() {
+				if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+			}
+
+			if (!build()) return;
+			draw();
+
+			// Only animate while the hero is actually on screen and the tab is visible.
+            if ('IntersectionObserver' in window) {
+				new IntersectionObserver(function (entries) {
+					entries[0].isIntersecting ? start() : stop();
+				}, { threshold: 0 }).observe(canvas);
+			} else { start(); }
+
+			document.addEventListener('visibilitychange', function () {
+				document.hidden ? stop() : start();
+			});
+
+			var t = null;
+			window.addEventListener('resize', function () {
+				clearTimeout(t);
+				t = setTimeout(function () { stop(); if (build()) { draw(); start(); } }, 180);
+			});
+
+			if (reduced.addEventListener) {
+				reduced.addEventListener('change', function () { stop(); start(); });
 			}
 		})();
 	</script>

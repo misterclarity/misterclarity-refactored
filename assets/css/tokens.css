@@ -1,0 +1,76 @@
+/* ===========================================================================
+   Design tokens — the single source of truth for the whole site.
+
+   Three pages grew their own styling independently: the welcome splash and
+   /it/ each carry an inline <style>, while /coaching/ and the blog run on the
+   older Bootstrap theme in style.css. This file is the shared layer they all
+   pull from, so the brand is defined once rather than three times.
+
+   Loaded FIRST on every page, before any page-specific CSS.
+   =========================================================================== */
+
+:root {
+	/* --- Brand accent ------------------------------------------------------
+	   --gold is the brand colour and is only legible on dark surfaces, where
+	   it lands at 8.3:1. On white it is 2.05:1, which fails WCAG for body text
+	   (4.5:1) and even for large text (3:1). --gold-ink is the same hue taken
+	   dark enough to pass at 4.6:1, and is what any accent TEXT or ICON on a
+	   light surface must use. Gold as a *background* behind dark text is fine
+	   either way, so those keep --gold.
+
+	   There are two light-surface tiers, because WCAG asks less of large text:
+	   --gold-ink clears 4.5:1 for normal-size text, while --gold-ink-lg clears
+	   3:1 and is for text at 24px+ and for icons, where it stays much closer to
+	   the brand gold. */
+	--gold: #FF9F1C;
+	--gold-ink: #A6660F;
+	--gold-ink-lg: #B97210;
+	--gold-bright: #FFB347;
+	--gold-soft: rgba(255, 159, 28, 0.2);
+	--heart: #FF0064;
+
+	/* --- Surfaces --------------------------------------------------------- */
+	--navy: #1a1a2e;
+	--navy-deep: #14181d;
+	--navy-dusk: #16213e;
+	--navy-night: #121220;
+	--blue-deep: #0f3460;
+	--surface-dark: #242b33;
+	--paper: #ffffff;
+	--paper-alt: #f7f7f9;
+	--hairline: #eeeeee;
+
+	/* --- Ink -------------------------------------------------------------- */
+	--ink: #333333;
+	--ink-soft: #5a6472;
+	--ink-on-dark: #ffffff;
+	--ink-on-dark-soft: rgba(255, 255, 255, 0.85);
+	--ink-on-dark-faint: rgba(255, 255, 255, 0.6);
+
+	/* --- Type ------------------------------------------------------------- */
+	--font-display: "Anaheim", "Trebuchet MS", sans-serif;
+	--font-body: "Quattrocento Sans", "Helvetica Neue", Arial, sans-serif;
+	--track-tight: 1px;
+	--track-wide: 2px;
+	--track-wider: 3px;
+
+	/* --- Shape and depth -------------------------------------------------- */
+	--radius-sm: 3px;
+	--radius-md: 6px;
+	--radius-lg: 12px;
+	--radius-pill: 999px;
+	--ring: 3px solid var(--gold);
+	--shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.4);
+	--shadow-md: 0 12px 35px rgba(0, 0, 0, 0.35);
+	--shadow-lift: 0 2px 14px rgba(0, 0, 0, 0.35);
+
+	/* --- Motion ----------------------------------------------------------- */
+	--ease: cubic-bezier(0.4, 0, 0.2, 1);
+	--dur-fast: 0.25s;
+	--dur-base: 0.3s;
+	--dur-slow: 0.45s;
+
+	/* --- Layout ----------------------------------------------------------- */
+	--nav-h: 72px;
+	--container-max: 1100px;
+}
